@@ -3,6 +3,7 @@ package com.jinhook.res_project.web.controller;
 import com.jinhook.res_project.bean.Resuser;
 import com.jinhook.res_project.dao.DbHelper;
 import com.jinhook.res_project.utils.EncryptUtils;
+import com.jinhook.res_project.utils.YcConstants;
 import com.jinhook.res_project.web.model.ResponseResult;
 
 import javax.servlet.ServletException;
@@ -17,7 +18,7 @@ public class ResuserServlet extends BaseServlet{
 
         public ResponseResult checkLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             HttpSession session = req.getSession();
-            Object resuser = session.getAttribute("resuser");
+            Object resuser = session.getAttribute(YcConstants.RESUSER);
             if(resuser != null){
                 return ResponseResult.ok().setData(resuser);
             }
@@ -27,7 +28,7 @@ public class ResuserServlet extends BaseServlet{
 
         public ResponseResult logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             HttpSession session = req.getSession();
-            session.removeAttribute("resuser");
+            session.removeAttribute(YcConstants.RESUSER);
             return ResponseResult.ok();
         }
 
@@ -58,7 +59,7 @@ public class ResuserServlet extends BaseServlet{
             }, sql, resuser.getUsername(), EncryptUtils.encryptToMD5(resuser.getPwd()));
 
             if(result != null){
-                session.setAttribute("resuser", result);
+                session.setAttribute(YcConstants.RESUSER, result);
                 return ResponseResult.ok().setData(result);
             }else{
                 return ResponseResult.error("用户名或密码错误");

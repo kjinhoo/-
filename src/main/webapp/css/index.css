@@ -156,6 +156,13 @@ body{
 	
 	transition:all 0.8s linear;
 }
+.isShow{
+	bottom:0px;
+}
+.isHide{
+	bottom:-300px;
+}
+
 .carbag p{
 	font-size:16px;
 	padding-left:20px;

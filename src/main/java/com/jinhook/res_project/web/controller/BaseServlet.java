@@ -40,25 +40,25 @@ public abstract class BaseServlet extends HttpServlet {
                 //存在该方法
                 if(m.getName().equals(setMethodName)){
                     String pType = m.getParameterTypes()[0].getSimpleName();
-                    if("int".equals(pType) || "java.lang.Integer".equals(pType)){
+                    if("int".equals(pType) || "Integer".equals(pType)){
                         int i = Integer.parseInt(value);
                         m.invoke(t, i);
-                    }else if("double".equals(pType) || "java.lang.Double".equals(pType)){
+                    }else if("double".equals(pType) || "Double".equals(pType)){
                         double i = Double.parseDouble(value);
                         m.invoke(t, i);
-                    }else if("float".equals(pType) || "java.lang.Float".equals(pType)){
+                    }else if("float".equals(pType) || "Float".equals(pType)){
                         float i = Float.parseFloat(value);
                         m.invoke(t, i);
-                    }else if("short".equals(pType) || "java.lang.Short".equals(pType)){
+                    }else if("short".equals(pType) || "Short".equals(pType)){
                         short i = Short.parseShort(value);
                         m.invoke(t, i);
-                    }else if("long".equals(pType) || "java.lang.Long".equals(pType)){
+                    }else if("long".equals(pType) || "Long".equals(pType)){
                         long i = Long.parseLong(value);
                         m.invoke(t, i);
-                    }else if("boolean".equals(pType) || "java.lang.Boolean".equals(pType)){
+                    }else if("boolean".equals(pType) || "Boolean".equals(pType)){
                         boolean i = Boolean.parseBoolean(value);
                         m.invoke(t, i);
-                    }else if("byte".equals(pType) || "java.lang.Byte".equals(pType)){
+                    }else if("byte".equals(pType) || "Byte".equals(pType)){
                         byte i = Byte.parseByte(value);
                         m.invoke(t, i);
                     }else{
@@ -110,7 +110,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf-8");  // 解决post乱码问题
+//        req.setCharacterEncoding("utf-8");  // 解决post乱码问题
         super.service(req, resp);   //判断请求方式，最终调用相应方法
     }
 }

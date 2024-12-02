@@ -24,6 +24,10 @@ public class ResponseResult {
         return ResponseResult.builder().code(0).msg(msg).build();
     }
 
+    public static ResponseResult noLogin(){
+        return ResponseResult.builder().code(-1).msg("请先登录").build();
+    }
+
     public <T> ResponseResult setData(T t){
         this.data = t;
         return this;
