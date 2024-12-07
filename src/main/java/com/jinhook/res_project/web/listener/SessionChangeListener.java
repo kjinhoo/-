@@ -1,8 +1,7 @@
 package com.jinhook.res_project.web.listener;
 
-import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.*;
 
 @WebListener
 public class SessionChangeListener implements HttpSessionAttributeListener {

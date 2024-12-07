@@ -1,7 +1,7 @@
 use res147;
 insert into resadmin(raname,rapwd) values( 'a','0cc175b9c0f1b6a831c399e269772661');
 select * from resadmin;
----用户表初始数据
+--用户表初始数据
 insert into resuser( username, pwd,email) values( 'a', '16955237001963240173058271559858726497','a@163.com');
 insert into resuser( username, pwd,email) values( 'b', '16955237001963240173058271559858726497','b@163.com');
 

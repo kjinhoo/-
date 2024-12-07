@@ -22,7 +22,7 @@
     </div>
     <div class="content">
         <ul class="allfoods" id="allfoods">
-            <li v-for="item in data" @click="traceBrowserFoods(item.fid)">
+            <li v-for="(item, index) in data" @click="traceBrowserFoods(item.fid)">
                 <h3 @click="showFood( item.fid )">{{item.fname}}</h3>
                 <div class="fooddesc" v-show="item.status">
                     <img :src=`image/${item.fphoto}` class=`foodimg"/>
@@ -31,6 +31,7 @@
                         <p class="normalprice">原价：￥{{item.normprice}}</p>
                         <p class="realprice">特价：￥{{item.realprice}}</p>
                         <p class="buybtn" @click="addCart(item.fid, 1)">加入购物车</p>
+                        <p>赞{{item.praise}}<span v-if="isLogin" @click="clickPraise(item.fid, index)">赞一发</span></p>
                     </article>
                 </div>
             </li>
@@ -320,6 +321,17 @@
                     let json = response.data;
                     if (json.code == 1) {
                         this.history = json.data;
+                    }
+                });
+            },
+            clickPraise(fid, index){
+                axios.post("resfood.action?op=clickPraise&fid="+fid).then(response => {
+                    let json = response.data;
+                    if (json.code == 1) {
+                        var d = this.data[index];
+                        d.praise = json.data.praise;
+                        //vue能感应的函数，不能直接操作数组
+                        this.data.splice(index, 1, d);
                     }
                 });
             }

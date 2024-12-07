@@ -12,4 +12,5 @@ public class Resfood implements Serializable {
     private Double realprice;
     private String detail;
     private String fphoto;
+    private Long praise;
 }

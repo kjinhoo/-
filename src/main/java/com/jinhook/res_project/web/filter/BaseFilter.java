@@ -2,8 +2,8 @@ package com.jinhook.res_project.web.filter;
 
 import com.google.gson.Gson;
 
-import javax.servlet.Filter;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 

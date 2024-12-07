@@ -1,17 +1,20 @@
 package com.jinhook.res_project.web.controller;
 
 import javax.imageio.ImageIO;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import lombok.extern.log4j.Log4j;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
+@Log4j
 @WebServlet("/code.action")
 public class CodeServlet extends HttpServlet {
     @Override
@@ -40,8 +43,10 @@ public class CodeServlet extends HttpServlet {
             char ch = str.charAt(index);
 
             sb.append(ch);
-            g.drawString( ch+"", width/5*i, height/2);//验证码
+            g.drawString( ch+"", width/5*i, height/2);
         }
+        log.info("验证码是："+sb.toString());
+        System.out.println("验证码是："+sb.toString());
 
         HttpSession session=req.getSession();
         session.setAttribute("code", sb.toString());

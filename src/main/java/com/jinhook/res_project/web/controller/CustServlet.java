@@ -7,10 +7,10 @@ import com.jinhook.res_project.utils.YcConstants;
 import com.jinhook.res_project.web.service.OrderBiz;
 import com.jinhook.res_project.web.model.ResponseResult;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
